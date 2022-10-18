@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include "main.h"
 
 /**
  * main -  prints Holberton, followed by a new line
