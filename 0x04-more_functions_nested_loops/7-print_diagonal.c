@@ -8,17 +8,22 @@
  */
 void print_diagonal(int n)
 {
-	int a, b;
+	int co, sp;
 
 	if (n <= 0)
-		_putchar('\n');
-	for (a = 0; a < n; a++)
 	{
-		for (b = 0; b < a; b++)
-		{
-			_putchar(' ');
-		}
-		_putchar('\\'):
 		_putchar('\n');
+	}
+	else
+	{
+		for (co = 1; co <= n; co++)
+		{
+			for (sp = 1; sp < co; sp++)
+			{
+				_putchar(' ');
+			}
+			_putchar('\\');
+			_putchar('\n');
+		}
 	}
 }
