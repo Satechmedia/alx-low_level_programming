@@ -1,57 +1,48 @@
 #include "main.h"
 
 /**
-* is_palindrome - returns true if the given string is a palindrome
-*@s: string to check
-*Return: true if the given string is a palindrome
-*/
-
+ * _comparacadena - compare two strings
+ *
+ * @s: first part of string
+ * @p: last part of the string
+ * Return: 0 if not and 1 if equal
+ **/
+int _comparacadena(char *s, char *p)
+{
+	if (*s == '\0')
+		return (1);
+	if (*s == *p)
+		return (_comparacadena(++s, --p));
+	else
+		return (0);
+}
+/**
+ * _ultima - this reverse the string to see if is the same
+ *
+ * @s: char pointer to check
+ *
+ * Return: return to the pointer in reverse
+ *
+ **/
+char *_ultima(char *s)
+{
+	if (*s != '\0')
+		return (_ultima(++s));
+	else
+		return (--s);
+}
+/**
+ * is_palindrome - the given function reeturning extra functions
+ * _ultima - this will reverse the string
+ *
+ * @s: char pointer to check
+ *
+ * Return: 1 if is palindrome 0 if is not
+ **/
 int is_palindrome(char *s)
 {
-	int index = 0;
-	int len = find_strlen(s);
+	char *p;
 
-	if (!(*s))
-		return (1);
-
-	return (check_palindrome(s, len, index));
-}
-
-/**
- * find_strlen - Returns the length of a string.
- * @s: The string to be measured.
- *
- * Return: The length of the string.
- */
-int find_strlen(char *s)
-{
-	int len = 0;
-
-	if (*(s + len))
-	{
-		len++;
-		len += find_strlen(s + len);
-	}
-
-	return (len);
-}
-
-/**
- * check_palindrome - Checks if a string is a palindrome.
- * @s: The string to be checked.
- * @len: The length of s.
- * @index: The index of the string to be checked.
- *
- * Return: If the string is a palindrome - 1.
- *         If the string is not a palindrome - 0.
- */
-int check_palindrome(char *s, int len, int index)
-{
-	if (s[index] == s[len / 2])
-		return (1);
-
-	if (s[index] == s[len - index - 1])
-		return (check_palindrome(s, len, index + 1));
-
-	return (0);
+	p = _ultima(s);
+	return (_comparacadena(s, p));
 }
